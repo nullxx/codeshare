@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/png" href="assets/code.png" />
+
+    <title>Code share</title>
+
+    <link
+      href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.32.0/codemirror.min.css"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/3024-day.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/3024-night.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/abbott.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/abcdef.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/ambiance.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/ayu-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/ayu-mirage.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/base16-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/bespin.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/base16-light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/blackboard.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/cobalt.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/colorforth.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/dracula.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/duotone-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/duotone-light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/eclipse.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/elegant.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/erlang-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/gruvbox-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/hopscotch.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/icecoder.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/isotope.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/juejin.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/lesser-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/liquibyte.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/lucario.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/material.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/material-darker.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/material-palenight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/material-ocean.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/mbo.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/mdn-like.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/midnight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/monokai.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/moxer.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/neat.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/neo.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/night.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/nord.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/oceanic-next.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/panda-syntax.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/paraiso-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/paraiso-light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/pastel-on-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/railscasts.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/rubyblue.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/seti.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/shadowfox.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/solarized.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/the-matrix.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/tomorrow-night-bright.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/tomorrow-night-eighties.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/ttcn.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/twilight.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/vibrant-ink.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/xq-dark.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/xq-light.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/yeti.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/idea.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/darcula.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/yonce.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.1/theme/zenburn.css"
+    />
+
+    <style>
+      body {
+        font-family: "Roboto";
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <h1>Code share</h1>
+      <div class="mdc-card">
+        <p style="margin-left: 10px;">
+          Select a theme:
+          <select onchange="selectTheme()" id="select">
+            <option selected>default</option>
+            <option>3024-day</option>
+            <option>3024-night</option>
+            <option>abbott</option>
+            <option>abcdef</option>
+            <option>ambiance</option>
+            <option>ayu-dark</option>
+            <option>ayu-mirage</option>
+            <option>base16-dark</option>
+            <option>base16-light</option>
+            <option>bespin</option>
+            <option>blackboard</option>
+            <option>cobalt</option>
+            <option>colorforth</option>
+            <option>darcula</option>
+            <option>dracula</option>
+            <option>duotone-dark</option>
+            <option>duotone-light</option>
+            <option>eclipse</option>
+            <option>elegant</option>
+            <option>erlang-dark</option>
+            <option>gruvbox-dark</option>
+            <option>hopscotch</option>
+            <option>icecoder</option>
+            <option>idea</option>
+            <option>isotope</option>
+            <option>juejin</option>
+            <option>lesser-dark</option>
+            <option>liquibyte</option>
+            <option>lucario</option>
+            <option>material</option>
+            <option>material-darker</option>
+            <option>material-palenight</option>
+            <option>material-ocean</option>
+            <option>mbo</option>
+            <option>mdn-like</option>
+            <option>midnight</option>
+            <option>monokai</option>
+            <option>moxer</option>
+            <option>neat</option>
+            <option>neo</option>
+            <option>night</option>
+            <option>nord</option>
+            <option>oceanic-next</option>
+            <option>panda-syntax</option>
+            <option>paraiso-dark</option>
+            <option>paraiso-light</option>
+            <option>pastel-on-dark</option>
+            <option>railscasts</option>
+            <option>rubyblue</option>
+            <option>seti</option>
+            <option>shadowfox</option>
+            <option>solarized dark</option>
+            <option>solarized light</option>
+            <option>the-matrix</option>
+            <option>tomorrow-night-bright</option>
+            <option>tomorrow-night-eighties</option>
+            <option>ttcn</option>
+            <option>twilight</option>
+            <option>vibrant-ink</option>
+            <option>xq-dark</option>
+            <option>xq-light</option>
+            <option>yeti</option>
+            <option>yonce</option>
+            <option>zenburn</option>
+          </select>
+        </p>
+        <textarea id="code"></textarea>
+        <!-- ... additional primary action content ... -->
+        <div class="mdc-card__actions">
+          <div class="mdc-card__action-buttons">
+            <button
+              class="mdc-button mdc-card__action mdc-card__action--button"
+              onclick="post()"
+            >
+              <div class="mdc-button__ripple"></div>
+              <span class="mdc-button__label">Upload</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <div
+        class="alert alert-primary"
+        role="alert"
+        id="result"
+        style="display: none; margin-top: 10px"
+      ></div>
+
+      <div
+        id="error"
+        style="
+          display: none;
+          margin-top: 10px;
+          background-color: red;
+          border-radius: 10px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          color: white;
+        "
+      ></div>
+    </div>
+
+    <div>
+      <h3>Your codes</h3>
+      <div class="mdc-data-table">
+        <div class="mdc-data-table__table-container">
+          <table class="mdc-data-table__table" aria-label="Your codes">
+            <thead>
+              <tr class="mdc-data-table__header-row">
+                <th
+                  class="mdc-data-table__header-cell"
+                  role="columnheader"
+                  scope="col"
+                >
+                  link
+                </th>
+                <th
+                  class="
+                    mdc-data-table__header-cell
+                    mdc-data-table__header-cell--numeric
+                  "
+                  role="columnheader"
+                  scope="col"
+                >
+                  hash
+                </th>
+                <th
+                  class="
+                    mdc-data-table__header-cell
+                    mdc-data-table__header-cell--numeric
+                  "
+                  role="columnheader"
+                  scope="col"
+                >
+                  createdAt
+                </th>
+              </tr>
+            </thead>
+            <tbody class="mdc-data-table__content"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const codemirror = CodeMirror.fromTextArea(
+        document.getElementById("code"),
+        {
+          lineNumbers: true,
+        }
+      );
+
+      async function post() {
+        document.getElementById("error").style.display = "none";
+        const code = codemirror.doc.getValue();
+        const response = await fetch("<%= baseURL %>/newCode", {
+          headers: {
+            "content-type": "application/json",
+            back: true,
+          },
+          body: JSON.stringify({
+            code,
+          }),
+          method: "POST",
+        });
+        const json = await response.json();
+        json.link = `<%= baseURL %>/${json.shortId}`;
+        if (!json.error) {
+          saveResult(json);
+        } else {
+          const errorDom = document.getElementById("error");
+          errorDom.innerHTML = `An error occurred: <b>${json.message}</b>`;
+          errorDom.style.display = "block";
+        }
+      }
+
+      function saveResult(json) {
+        let items = localStorage.getItem("links");
+        try {
+          items = JSON.parse(items);
+        } catch (_error) {}
+
+        if (!items || !Array.isArray(items)) {
+          items = [];
+        }
+
+        const found = items.find((i) => i.hash === json.hash);
+        if (found) return;
+
+        items.push(json);
+        localStorage.setItem("links", JSON.stringify(items));
+
+        addToTable(json);
+      }
+
+      function addToTable(json) {
+        document.querySelector(".mdc-data-table__content").innerHTML =
+          `<tr class="mdc-data-table__row">
+          <th class="mdc-data-table__cell" scope="row"><a href="${json.link}" target="_BLANC">${json.link}</a></th>
+          <th class="mdc-data-table__cell" scope="row"><pre>${json.hash}</pre></th>
+          <th class="mdc-data-table__cell" scope="row">${json.createdAt}</th>
+        </tr>` + document.querySelector(".mdc-data-table__content").innerHTML;
+      }
+
+      function initTable() {
+        let items = localStorage.getItem("links");
+        try {
+          items = JSON.parse(items);
+        } catch (_error) {}
+        if (!Array.isArray(items)) return;
+
+        items.forEach((json) => {
+          addToTable(json);
+        });
+      }
+
+      var input = document.getElementById("select");
+      function selectTheme() {
+        var theme = input.options[input.selectedIndex].textContent;
+        codemirror.setOption("theme", theme);
+      }
+
+      initTable();
+    </script>
+  </body>
+</html>

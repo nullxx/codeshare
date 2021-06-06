@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title><%= shortId %></title>
+    <link rel="icon" type="image/png" href="assets/code.png" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/github-gist.min.css"
+      integrity="sha512-od7JLoOTxM8w/HSKGzP9Kexc20K9p/M2zxSWsd7H1e4Ctf+8SQFtCWEZnW5u6ul5ehSECa5QmOk9ju2nQMmlVA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  </head>
+  <body>
+    <div class="code"><pre><%= code %></pre></div>
+
+    <script>
+      document.querySelectorAll("pre").forEach((block) => {
+        hljs.highlightElement(block);
+      });
+    </script>
+  </body>
+</html>

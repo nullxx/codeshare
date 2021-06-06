@@ -1,0 +1,44 @@
+<html>
+  <title>Error</title>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      body {
+        text-align: center;
+        padding: 15%;
+      }
+      h1 {
+        font-size: 50px;
+      }
+      body {
+        font: 20px Helvetica, sans-serif;
+        color: #333;
+      }
+      article {
+        display: block;
+        text-align: left;
+        width: 70%;
+        margin: 0 auto;
+      }
+      a {
+        color: #dc8100;
+        text-decoration: none;
+      }
+      a:hover {
+        color: #333;
+        text-decoration: none;
+      }
+    </style>
+  </head>
+
+  <body>
+    <article>
+      <h1>ERROR</h1>
+      <div>
+        <p>We found an error.</p>
+        <p><b><%= error.message || error %></b></p>
+      </div>
+    </article>
+  </body>
+</html>
