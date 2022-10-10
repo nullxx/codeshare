@@ -20,8 +20,9 @@
       font-family: "Roboto";
     }
     .editor {
-      min-height: 100px;
-      overflow: scroll;
+      min-height: 200px;
+      max-height: 500px;
+      overflow: auto;
     }
   </style>
 </head>
@@ -30,7 +31,9 @@
   <div>
     <h1>Code share</h1>
     <div class="mdc-card">
-      <pre contenteditable="true" id="code" class="editor"></pre>
+      <code contenteditable="true" id="code" class="editor" spellcheck="false">
+        code goes here
+      </code>
 
       <!-- ... additional primary action content ... -->
       <div class="mdc-card__actions">
