@@ -14,6 +14,10 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 
   <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+  <!-- codemirror -->
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.0/codemirror.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.61.0/codemirror.min.js"></script>
+
 
   <style>
     body {
@@ -31,9 +35,7 @@
   <div>
     <h1>Code share</h1>
     <div class="mdc-card">
-      <code contenteditable="true" id="code" class="editor" spellcheck="false">
-        code goes here
-      </code>
+      <textarea id="code" class="editor" spellcheck="false" placeholder="Write your code here"></textarea>
 
       <!-- ... additional primary action content ... -->
       <div class="mdc-card__actions">
@@ -90,27 +92,17 @@
   </div>
 
   <script>
-    // const codemirror = CodeMirror.fromTextArea(
-    //   document.getElementById("code"),
-    //   {
-    //     lineNumbers: true,
-    //   }
-    // );
-    const editor = document.getElementById("code");
-    // onchange editor
-    editor.addEventListener("input", (e) => {
-      hljs.highlightElement(e.target);
-    });
+    const codemirror = CodeMirror.fromTextArea(
+      document.getElementById("code"),
+      {
+        lineNumbers: true,
+      }
+    );
 
-    // codemirror onchage
-    // codemirror.on("change", function (cm, change) {
-    //   // console.log("change", cm, change);
-    //   console.log(hljs.highlightElement(document.getElementById("code")));
-    // });
 
     async function post() {
       document.getElementById("error").style.display = "none";
-      const code = codemirror.doc.getValue();
+      const code = codemirror.getValue();
       const response = await fetch("<%= baseURL %>/newCode", {
         headers: {
           "content-type": "application/json",
