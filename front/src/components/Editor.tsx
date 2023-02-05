@@ -41,7 +41,7 @@ function App() {
   const [lang, setLang] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
   const [theme, setTheme] = React.useState<string>(
-    themePrefix + localStorage.getItem("dark") === "true" ? "dark" : "light"
+    themePrefix + (localStorage.getItem("dark") === "true" ? "dark" : "light")
   );
 
 
@@ -123,7 +123,7 @@ function App() {
 
   React.useEffect(() => {
     const hander = (e: StorageEvent) => {
-      if (e.key === 'dark') {
+      if (e.key === "dark") {
         const theme = e.newValue === "true" ? "dark" : "light";
         const themeName = themePrefix + theme;
         setTheme(themeName);
