@@ -18,15 +18,12 @@ const url = import.meta.env.BASE_URL;
   const code = url.searchParams.get("code");
   const iframe = document.createElement("iframe");
   if (code) {
-    iframe.src = `http://localhost:3004/${code}`;
+    iframe.src = `/${code}`;
     iframe.width = "100%";
     iframe.height = "100%";
     iframe.style.backgroundColor =
       localStorage.getItem("dark") === "true" ? "#000" : "#fff";
 
-    // append iframe to the body
-    // document.getElementById("code-loaded")?.appendChild(iframe);
-    // insert after the button
     const codeLoaded = document.getElementById("code-loaded");
     if (codeLoaded) {
       document
