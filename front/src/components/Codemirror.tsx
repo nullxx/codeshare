@@ -12,8 +12,25 @@ interface Lang {
 }
 
 const themePrefix = "vs-";
-console.log(import.meta.env);
 
+const replacements = [
+  {
+    from: "js",
+    to: "javascript",
+  },
+  {
+    from: "ts",
+    to: "typescript",
+  },
+  {
+    from: "py",
+    to: "python",
+  },
+  {
+    from: "rb",
+    to: "ruby",
+  },
+]
 function App() {
   const API_URL = import.meta.env.DEV ? "http://localhost:3004" : window.location.origin;
 
@@ -41,7 +58,13 @@ function App() {
       a.confidence > b.confidence ? a : b
     );
 
-    setLang(lang.languageId);
+    const langName = lang.languageId;
+    const langNameReplaced = replacements.reduce(
+      (acc, cur) => (acc === cur.from ? cur.to : acc),
+      langName
+    );
+    
+    setLang(langNameReplaced);
   };
 
   const onChange = React.useCallback(async (value?: string) => {
