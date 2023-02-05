@@ -5,7 +5,7 @@ const Code = require('../schemas/code.schema');
 
 function getRoot(req, res, next) {
     try {
-        res.render('home', { baseURL: process.env.BASE_URL });
+        res.render('front/index');
     } catch (error) {
         next(error);
     }

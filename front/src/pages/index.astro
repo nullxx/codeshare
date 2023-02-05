@@ -1,0 +1,21 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Codemirror from "../components/Codemirror";
+import History from "../components/History";
+import CodeLoader from "../components/CodeLoader.astro";
+---
+
+<Layout title="Codeshare">
+  <main class="flex justify-center flex-col md:flex-row ml-5 mr-5">
+    <div
+      class="rounded-md border-2 shadow-md md:w-[80%] p-5 hover:shadow-lg transition-all duration-300 dark:bg-gray-800 dark:text-gray-100 border-gray-600 bg-white"
+    >
+      <Codemirror client:only />
+    </div>
+    <div class="h-5 md:w-5"></div>
+    <History client:only />
+    <CodeLoader />
+  </main>
+</Layout>
+
+<style></style>

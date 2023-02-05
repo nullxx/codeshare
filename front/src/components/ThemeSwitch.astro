@@ -1,0 +1,69 @@
+---
+const size = 20;
+---
+
+<style>
+  button {
+    all: none;
+  }
+</style>
+
+<theme-switcher class="p-2">
+  <button
+    class="border border-black rounded-sm bg-slate-900 p-2 hover:bg-slate-500"
+  >
+    <svg
+      fill="#FFFF"
+      class="hidden dark:block"
+      width={`${size}px`}
+      height={`${size}px`}
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      ><path
+        d="M12,18a6,6,0,1,0-6-6A6.006,6.006,0,0,0,12,18ZM12,8a4,4,0,1,1-4,4A4,4,0,0,1,12,8ZM11,3V2a1,1,0,0,1,2,0V3a1,1,0,0,1-2,0Zm1,17a1,1,0,0,1,1,1v1a1,1,0,0,1-2,0V21A1,1,0,0,1,12,20ZM17.657,6.343a1,1,0,0,1,0-1.414l.707-.707a1,1,0,0,1,1.414,1.414l-.707.707a1,1,0,0,1-1.414,0ZM6.343,17.657a1,1,0,0,1,0,1.414l-.707.707a1,1,0,0,1-1.414-1.414l.707-.707A1,1,0,0,1,6.343,17.657ZM23,12a1,1,0,0,1-1,1H21a1,1,0,0,1,0-2h1A1,1,0,0,1,23,12ZM1,12a1,1,0,0,1,1-1H3a1,1,0,0,1,0,2H2A1,1,0,0,1,1,12Zm18.071,5.657.707.707a1,1,0,1,1-1.414,1.414l-.707-.707a1,1,0,0,1,1.414-1.414ZM4.222,5.636A1,1,0,0,1,5.636,4.222l.707.707A1,1,0,1,1,4.929,6.343Z"
+      ></path></svg
+    >
+    <svg
+      class="dark:hidden"
+      width={`${size}px`}
+      height={`${size}px`}
+      viewBox="0 0 15 15"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M7.7066 0.00274765C7.50391 -0.0027381 7.31797 0.114737 7.23588 0.300147C7.15379 0.485558 7.19181 0.702186 7.33213 0.848565C8.36577 1.92686 9.00015 3.3888 9.00015 4.99996C9.00015 8.31366 6.31385 11 3.00015 11C2.5757 11 2.16207 10.956 1.76339 10.8725C1.56489 10.8309 1.36094 10.9133 1.2471 11.0812C1.13325 11.249 1.13207 11.469 1.2441 11.638C2.58602 13.663 4.88682 15 7.50012 15C11.6423 15 15.0001 11.6421 15.0001 7.49996C15.0001 3.42688 11.7534 0.112271 7.7066 0.00274765Z"
+        fill="#FFFF"></path>
+    </svg>
+  </button>
+  <script>
+    const themeSwitcher = document.querySelector("theme-switcher");
+    const button = themeSwitcher.querySelector("button");
+    const isDark = localStorage.getItem("dark") === "true";
+    const darkTheme = "dark";
+    const lightTheme = "light";
+    const root = document.documentElement;
+
+    const setTheme = (theme) => {
+      root.classList.remove(darkTheme, lightTheme);
+      root.classList.add(theme);
+      localStorage.setItem("dark", theme === darkTheme);
+    };
+
+    const toggleTheme = () => {
+      if (root.classList.contains(darkTheme)) {
+        setTheme(lightTheme);
+      } else {
+        setTheme(darkTheme);
+      }
+    };
+
+    button.addEventListener("click", toggleTheme);
+
+    if (isDark) {
+      setTheme(darkTheme);
+    } else {
+      setTheme(lightTheme);
+    }
+  </script>
+</theme-switcher>

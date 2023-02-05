@@ -1,3 +1,8 @@
 .env
 node_modules/
 .DS_Store
+
+public/_astro/
+public/chunks/
+public/*.mjs
+views/front/

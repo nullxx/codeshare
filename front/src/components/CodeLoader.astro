@@ -1,0 +1,38 @@
+---
+const url = import.meta.env.BASE_URL;
+---
+
+<div
+  class="absolute top-0 left-0 w-full h-full bg-white dark:bg-black hidden"
+  id="code-loaded"
+>
+  <a
+    href={url}
+    target="_blank"
+    class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded fixed top-4 right-4"
+    >Share more code!</a
+  >
+</div>
+<script>
+  const url = new URL(window.location.href);
+  const code = url.searchParams.get("code");
+  const iframe = document.createElement("iframe");
+  if (code) {
+    iframe.src = `http://localhost:3004/${code}`;
+    iframe.width = "100%";
+    iframe.height = "100%";
+    iframe.style.backgroundColor =
+      localStorage.getItem("dark") === "true" ? "#000" : "#fff";
+
+    // append iframe to the body
+    // document.getElementById("code-loaded")?.appendChild(iframe);
+    // insert after the button
+    const codeLoaded = document.getElementById("code-loaded");
+    if (codeLoaded) {
+      document
+        .getElementById("code-loaded")
+        ?.insertBefore(iframe, codeLoaded.firstChild);
+      codeLoaded.classList.remove("hidden");
+    }
+  }
+</script>
