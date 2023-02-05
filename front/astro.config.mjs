@@ -9,5 +9,8 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   integrations: [tailwind(), react()],
-  site: process.env.SITE
+  site: process.env.SITE,
+  vite: {
+    assetsInclude: ['**/*.bin']
+  }
 });

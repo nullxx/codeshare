@@ -1,6 +1,6 @@
 import React from "react";
 import _Editor from "@monaco-editor/react";
-
+import { ModelOperations } from "@vscode/vscode-languagedetection";
 const Editor = Object.hasOwnProperty.call(_Editor, "default")
   ? (_Editor as any).default
   : _Editor;
@@ -32,6 +32,25 @@ const replacements = [
   },
 ];
 
+const modelJSON = await import(
+  "@vscode/vscode-languagedetection/model/model.json"
+);
+
+const buffer = await import(
+  // @ts-expect-error
+  "@vscode/vscode-languagedetection/model/group1-shard1of1.bin"
+);
+
+const modulOperations = new ModelOperations({
+  modelJsonLoaderFunc: async () => {
+    return modelJSON.default;
+  },
+  weightsLoaderFunc: async () => {
+    const res = await fetch(buffer.default).then((res) => res.arrayBuffer());
+    return res;
+  },
+});
+
 function App() {
   const API_URL = import.meta.env.DEV
     ? "http://localhost:3004"
@@ -44,16 +63,8 @@ function App() {
     themePrefix + (localStorage.getItem("dark") === "true" ? "dark" : "light")
   );
 
-
   const detectLang = async (value: string) => {
-    // @ts-ignore
-    if (!window.GuessLang) {
-      return;
-    }
-
-    // @ts-ignore
-    const g = new GuessLang();
-    const langs = await g.runModel(value);
+    const langs = await modulOperations.runModel(value);
     if (!langs || langs.length === 0) {
       return;
     }

@@ -16,6 +16,7 @@
     "@monaco-editor/react": "^4.4.6",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "@vscode/vscode-languagedetection": "^1.0.22",
     "astro": "^2.0.4",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
