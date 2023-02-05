@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const maxCodes = 10;
 const loadCodes = () => {
-  const savedCodes = localStorage.getItem("codes");
+  const savedCodes = localStorage.getItem("links");
   if (savedCodes) {
     let codes = JSON.parse(savedCodes);
     codes = codes.sort((a: any, b: any) => {

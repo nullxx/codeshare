@@ -62,7 +62,7 @@ function App() {
         }),
       }).then((res) => res.json());
 
-      const prevCodes = JSON.parse(localStorage.getItem("codes") || "[]");
+      const prevCodes = JSON.parse(localStorage.getItem("links") || "[]");
       let newCodes = [...prevCodes, r];
       // remove duplicates
       newCodes = newCodes.filter(
@@ -70,7 +70,7 @@ function App() {
           a.findIndex((t) => t.hash === v.hash) === i
       );
       const newCodesStr = JSON.stringify(newCodes);
-      localStorage.setItem("codes", newCodesStr);
+      localStorage.setItem("links", newCodesStr);
 
       window.onstorage &&
         window.onstorage(
