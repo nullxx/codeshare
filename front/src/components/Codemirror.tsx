@@ -30,16 +30,20 @@ const replacements = [
     from: "rb",
     to: "ruby",
   },
-]
+];
+
 function App() {
-  const API_URL = import.meta.env.DEV ? "http://localhost:3004" : window.location.origin;
+  const API_URL = import.meta.env.DEV
+    ? "http://localhost:3004"
+    : window.location.origin;
 
   const [code, setCode] = React.useState("");
   const [lang, setLang] = React.useState<string>("");
   const [loading, setLoading] = React.useState<boolean>(false);
+  const [theme, setTheme] = React.useState<string>(
+    themePrefix + localStorage.getItem("dark") === "true" ? "dark" : "light"
+  );
 
-  const theme = localStorage.getItem("dark") === "true" ? "dark" : "light";
-  const themeName = themePrefix + theme;
 
   const detectLang = async (value: string) => {
     // @ts-ignore
@@ -63,7 +67,7 @@ function App() {
       (acc, cur) => (acc === cur.from ? cur.to : acc),
       langName
     );
-    
+
     setLang(langNameReplaced);
   };
 
@@ -117,6 +121,18 @@ function App() {
     detectLang(code);
   }, [code]);
 
+  React.useEffect(() => {
+    const hander = (e: StorageEvent) => {
+      if (e.key === 'dark') {
+        const theme = e.newValue === "true" ? "dark" : "light";
+        const themeName = themePrefix + theme;
+        setTheme(themeName);
+      }
+    };
+
+    window.addEventListener("storage", hander);
+  }, []);
+
   const canSubmit = code.length > 0;
 
   return (
@@ -124,7 +140,7 @@ function App() {
       <Toaster />
 
       <Editor
-        theme={themeName}
+        theme={theme}
         height="500px"
         defaultLanguage={lang}
         language={lang}

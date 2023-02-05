@@ -48,6 +48,13 @@ const size = 20;
       root.classList.remove(darkTheme, lightTheme);
       root.classList.add(theme);
       localStorage.setItem("dark", theme === darkTheme);
+
+      const event = new StorageEvent("storage", {
+        key: "dark",
+        newValue: theme === darkTheme,
+      });
+
+      window.dispatchEvent(event);
     };
 
     const toggleTheme = () => {
