@@ -12,6 +12,10 @@ const schema = mongoose.model('Code',
                 type: String,
                 index: true
             },
+            views: {
+                type: Number,
+                default: 0
+            }
         },
         {
             timestamps: { createdAt: true, updatedAt: false }
