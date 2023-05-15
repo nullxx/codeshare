@@ -54,6 +54,25 @@ async function showCode(req, res, next) {
     }
 }
 
+async function statsCode(req, res, next) {
+    try {
+        const { shortId } = req.params;
+
+        let codeFound = await Code.findOne({ shortId });
+        if (!codeFound) throw new Error('ERR_NOT_FOUND');
+
+        res.json({
+            shortId: codeFound.shortId,
+            hash: codeFound.hash,
+            views: codeFound.views,
+            createdAt: codeFound.createdAt
+        });
+    } catch (error) {
+        next(error);
+    }
+}
+
 module.exports.getRoot = getRoot;
 module.exports.newCode = newCode;
 module.exports.showCode = showCode;
+module.exports.statsCode = statsCode;   
