@@ -121,6 +121,7 @@ function App() {
         );
 
       toast.success("Code submitted successfully!");
+      setCode(""); // clear code
     } catch (error) {
       console.error(error);
     } finally {
@@ -156,6 +157,7 @@ function App() {
         defaultLanguage={lang}
         language={lang}
         defaultValue={code}
+        value={code}
         onChange={onChange}
       />
       <div className="h-2" />

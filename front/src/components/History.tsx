@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { toast, Toaster } from "react-hot-toast";
 
 const maxCodes = 10;
 const loadCodes = () => {
@@ -45,9 +46,15 @@ export default function History() {
     return <></>;
   }
 
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(`${import.meta.env.BASE_URL}?code=${selectedCode?.shortId}`);
+    toast.success("Copied to clipboard");
+  };
 
   return (
     <div className="max-h-[83vh]">
+      <Toaster />
+
       {selectedCode && (
         <div className="fixed top-0 left-0 w-full h-full flex items-center justify-center backdrop-filter backdrop-blur-sm z-10">
           <div className="bg-gray-100 rounded-lg p-4 dark:bg-gray-800 w-[90%] h-[90%] dark:text-white border-2 border-gray-200 dark:border-gray-700 shadow-md">
@@ -70,10 +77,17 @@ export default function History() {
               </svg>
             </button>
             <div className="flex justify-between">
-              <a href={`${import.meta.env.BASE_URL}?code=${selectedCode?.shortId}`} className="text-xl font-bold" target="_blank">
-                {selectedCode?.shortId}
-                <svg width="20px" height="20px" viewBox="0 0 1024 1024" className="icon inline ml-2"  version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M811.3 938.7H217.5c-71.5 0-129.8-58.2-129.8-129.8V215.1c0-71.6 58.2-129.8 129.8-129.8h296.9c23.6 0 42.7 19.1 42.7 42.7s-19.1 42.7-42.7 42.7H217.5c-24.5 0-44.4 19.9-44.4 44.4v593.8c0 24.5 19.9 44.4 44.4 44.4h593.8c24.5 0 44.4-19.9 44.4-44.4V512c0-23.6 19.1-42.7 42.7-42.7S941 488.4 941 512v296.9c0 71.6-58.2 129.8-129.7 129.8z" fill="#3688FF" /><path d="M898.4 405.3c-23.6 0-42.7-19.1-42.7-42.7V212.9c0-23.3-19-42.3-42.3-42.3H663.7c-23.6 0-42.7-19.1-42.7-42.7s19.1-42.7 42.7-42.7h149.7c70.4 0 127.6 57.2 127.6 127.6v149.7c0 23.7-19.1 42.8-42.6 42.8z" fill="#5F6379" /><path d="M373.6 712.6c-10.9 0-21.8-4.2-30.2-12.5-16.7-16.7-16.7-43.7 0-60.3L851.2 132c16.7-16.7 43.7-16.7 60.3 0 16.7 16.7 16.7 43.7 0 60.3L403.8 700.1c-8.4 8.3-19.3 12.5-30.2 12.5z" fill="#5F6379" /></svg>
-              </a>
+              <div>
+                <a href={`${import.meta.env.BASE_URL}?code=${selectedCode?.shortId}`} className="text-xl font-bold" target="_blank">
+                  {selectedCode?.shortId}
+                  <svg width="20px" height="20px" viewBox="0 0 1024 1024" className="icon inline ml-2" version="1.1" xmlns="http://www.w3.org/2000/svg"><path d="M811.3 938.7H217.5c-71.5 0-129.8-58.2-129.8-129.8V215.1c0-71.6 58.2-129.8 129.8-129.8h296.9c23.6 0 42.7 19.1 42.7 42.7s-19.1 42.7-42.7 42.7H217.5c-24.5 0-44.4 19.9-44.4 44.4v593.8c0 24.5 19.9 44.4 44.4 44.4h593.8c24.5 0 44.4-19.9 44.4-44.4V512c0-23.6 19.1-42.7 42.7-42.7S941 488.4 941 512v296.9c0 71.6-58.2 129.8-129.7 129.8z" fill="#3688FF" /><path d="M898.4 405.3c-23.6 0-42.7-19.1-42.7-42.7V212.9c0-23.3-19-42.3-42.3-42.3H663.7c-23.6 0-42.7-19.1-42.7-42.7s19.1-42.7 42.7-42.7h149.7c70.4 0 127.6 57.2 127.6 127.6v149.7c0 23.7-19.1 42.8-42.6 42.8z" fill="#5F6379" /><path d="M373.6 712.6c-10.9 0-21.8-4.2-30.2-12.5-16.7-16.7-16.7-43.7 0-60.3L851.2 132c16.7-16.7 43.7-16.7 60.3 0 16.7 16.7 16.7 43.7 0 60.3L403.8 700.1c-8.4 8.3-19.3 12.5-30.2 12.5z" fill="#5F6379" /></svg>
+                </a>
+                <button onClick={copyToClipboard} className="text-blue-500 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-600">
+                  <svg width="50px" height="50px"
+                    className="icon inline ml-2 dark:fill-white fill-black"
+                    viewBox="0 0 24 24" fill="" xmlns="http://www.w3.org/2000/svg"><path d="M10 8V7C10 6.05719 10 5.58579 10.2929 5.29289C10.5858 5 11.0572 5 12 5H17C17.9428 5 18.4142 5 18.7071 5.29289C19 5.58579 19 6.05719 19 7V12C19 12.9428 19 13.4142 18.7071 13.7071C18.4142 14 17.9428 14 17 14H16M7 19H12C12.9428 19 13.4142 19 13.7071 18.7071C14 18.4142 14 17.9428 14 17V12C14 11.0572 14 10.5858 13.7071 10.2929C13.4142 10 12.9428 10 12 10H7C6.05719 10 5.58579 10 5.29289 10.2929C5 10.5858 5 11.0572 5 12V17C5 17.9428 5 18.4142 5.29289 18.7071C5.58579 19 6.05719 19 7 19Z" stroke="#464455" stroke-linecap="round" stroke-linejoin="round" /></svg>
+                </button>
+              </div>
               <p className="text-gray-500 dark:text-gray-400">
                 {selectedCode?.createdAt}
               </p>
