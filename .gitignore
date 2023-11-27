@@ -6,3 +6,5 @@ public/_astro/
 public/chunks/
 public/*.mjs
 views/front/
+
+build-push.sh
