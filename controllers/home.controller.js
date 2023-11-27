@@ -44,10 +44,14 @@ async function newCode(req, res, next) {
 async function showCode(req, res, next) {
     try {
         const { shortId } = req.params;
+        const { raw } = req.query;
 
         let codeFound = await Code.findOneAndUpdate({ shortId }, { $inc: { views: 1 } });
         if (!codeFound) throw new Error('ERR_NOT_FOUND');
-
+        if (raw) {
+            return res.send(codeFound.code);
+        }
+        
         res.render('code', { code: codeFound.code, shortId: codeFound.shortId });
     } catch (error) {
         next(error);

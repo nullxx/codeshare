@@ -11,4 +11,5 @@ SITE=$(printenv BASE_URL) npm run build
 
 mkdir -p ../views/front
 mv dist/*.html ../views/front
+mkdir -p ../public
 cp -R dist/* ../public/.
